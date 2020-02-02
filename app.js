@@ -3,6 +3,7 @@ import Server from "spatis";
 import { AllTodos } from "./js/AllTodos.jsx";
 
 const server = new Server();
+server.staticFilesSourcePath("./dist");
 
 const Footer = () => (
   <footer class="info">

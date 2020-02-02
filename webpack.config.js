@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 const jsDefaultRules = [
   {
@@ -26,7 +27,7 @@ const serverTarget = {
   },
   resolve: {
     alias: {
-      spatis: path.resolve(__dirname, "../spatis/dist", "spatis")
+      spatis: path.resolve(__dirname, "node_modules/spatis/dist", "server")
     }
   }
 };
@@ -43,7 +44,7 @@ const clientTarget = {
   },
   resolve: {
     alias: {
-      spatis: path.resolve(__dirname, "../spatis/dist", "spatis-client")
+      spatis: path.resolve(__dirname, "node_modules/spatis/dist", "client")
     }
   }
 };
