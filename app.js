@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Server from "spatis";
 import { AllTodos } from "./js/AllTodos.jsx";
 
 const server = new Server();
-server.staticFilesSourcePath("./dist");
 
-const Footer = () => (
-  <footer class="info">
-    <p>Double-click to edit a todo</p>
-    <p>
-      Created by <a href="http://github.com/petehunt/">petehunt</a>
-    </p>
-    <p>
-      Part of <a href="http://todomvc.com">TodoMVC</a>
-    </p>
-  </footer>
-);
+server.setState({
+  todos: []
+});
+
+server.useHtml("./index.html");
+server.staticFilesSourcePath("./dist");
+server.addStylesheets(["css/base.css", "css/index.css"]);
 
 server.when("/", state => {
   return <AllTodos state={state} />;
